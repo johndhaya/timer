@@ -39,9 +39,9 @@
 }
 .digital-timer-cont {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 90%;
+  width: auto;
 }
 .timer-dislay-cont {
   display: flex;
@@ -162,6 +162,7 @@
 }
 .limit-label {
   color: #1e293b;
+  text-align: center;
   font-family: 'Roboto';
   font-size: 16px;
   font-weight: 500;

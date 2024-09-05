@@ -26,11 +26,13 @@ class DigitalTimer extends Component {
       }))
     }
   }
+
   onIncreaseTimerLimitInMinutes = () => {
     this.setState(prevState => ({
       timerLimitInMinutes: prevState.timerLimitInMinutes + 1,
     }))
   }
+
   renderTimerLimitController = () => {
     const {timerLimitInMinutes, timeElapseInSeconds} = this.state
     const isBtnDisabled = timeElapseInSeconds > 0
@@ -62,6 +64,7 @@ class DigitalTimer extends Component {
       </div>
     )
   }
+
   onResetTimer = () => {
     this.clearTimerInterval()
     this.setState(initialState)
@@ -82,9 +85,11 @@ class DigitalTimer extends Component {
   }
 
   onStartOrPauseTimer = () => {
-    const {isTimerRunning, timeElapseInSeconds, timerLimitInMinutes} =
-      this.state
-
+    const {
+      isTimerRunning,
+      timeElapseInSeconds,
+      timerLimitInMinutes,
+    } = this.state
     const isTimerCompleted = timeElapseInSeconds === timerLimitInMinutes * 60
 
     if (isTimerCompleted) {
@@ -97,6 +102,7 @@ class DigitalTimer extends Component {
     }
     this.setState(prevState => ({isTimerRunning: !prevState.isTimerRunning}))
   }
+
   renderTimerController = () => {
     const {isTimerRunning} = this.state
     const startOrPauseImgUrl = isTimerRunning
@@ -143,7 +149,7 @@ class DigitalTimer extends Component {
     const minutes = Math.floor(totalRemainingSeconds / 60)
     const seconds = Math.floor(totalRemainingSeconds % 60)
     const stringMinutes = minutes > 9 ? minutes : `0${minutes}`
-    const stringSeconds = minutes > 9 ? seconds : `0${seconds}`
+    const stringSeconds = seconds > 9 ? seconds : `0${seconds}`
 
     return `${stringMinutes}:${stringSeconds}`
   }
